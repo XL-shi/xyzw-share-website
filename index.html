@@ -47,9 +47,15 @@
             left: 0;
             right: 0;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             z-index: 10;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 20px;
         }
         
         .button {
@@ -68,6 +74,21 @@
             animation: pulse 2s infinite;
         }
         
+        .download-button {
+            background: linear-gradient(145deg, #ffd700, #f8e58c);
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            min-width: 110px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(248, 229, 140, 0.4);
+            transition: all 0.3s ease;
+        }
+        
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -84,6 +105,12 @@
             background: linear-gradient(145deg, #f8e58c, #ffd700);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(248, 229, 140, 0.6);
+        }
+        
+        .download-button:hover {
+            background: linear-gradient(145deg, #f8e58c, #ffd700);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(248, 229, 140, 0.6);
         }
         
         .contact-container {
@@ -142,7 +169,7 @@
             background: #fff8e7;
             padding: 20px;
             border-radius: 12px;
-            margin-top: 20px;
+            margin-top: 0px;
         }
         
         .exchange-codes p {
@@ -212,6 +239,25 @@
             font-size: 14px;
             color: #9ca3af;
         }
+        
+        .wechat-tip {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
 
         @media (max-width: 768px) {
             .main-container {
@@ -220,10 +266,12 @@
             }
             
             .buttons-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
                 bottom: 10px;
+                gap: 10px;
+            }
+            
+            .download-buttons {
+                gap: 10px;
             }
             
             .contact-container {
@@ -250,6 +298,11 @@
                 font-size: 20px;
                 padding: 8px 20px;
             }
+            
+            .wechat-tip {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
@@ -257,10 +310,14 @@
   <div class="main-container">
     <img src="https://cdn.yun.sooce.cn/4/73819/jpg/1718978348168da8575ada6b8f5ef03ba1eb3d26a8d6a.jpg?imageMogr2/thumbnail/1782x&version=0" alt="Banner图片" class="banner-image">
     
-    <!-- 两个按钮 -->
+    <!-- 按钮区域 -->
     <div class="buttons-container">
-        <button class="button" id="download-button">下载游戏</button>
-        <button class="button" id="register-button">注册</button>
+      <button class="button" id="register-button" style="font-size: 16px; padding: 10px 22px;">注册</button>
+      <div class="download-buttons">
+        <button class="download-button" id="download-button1">双端下载地址1</button>
+        <button class="download-button" id="download-button2">双端下载地址2</button>
+      </div>
+    <p class="wechat-tip">⚠️ 微信不能直接下载，请在浏览器中打开 </p>
     </div>
   </div>
   
@@ -307,14 +364,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 按钮点击事件
-            document.getElementById('download-button').addEventListener('click', function() {
+            document.getElementById('download-button1').addEventListener('click', function() {
                 // 下载游戏按钮的功能
-                window.location.href = 'http://sdk.zzttaacvb.com:13111/mobile/Downfile/index?gid=3&pid=5245';
+                window.location.href = 'https://20cdn.xyz/xyzwby';
+            });
+            
+            document.getElementById('download-button2').addEventListener('click', function() {
+                // 下载游戏按钮的功能
+                window.location.href = 'https://ff.tiefenfa.com/eMOC';
             });
             
             document.getElementById('register-button').addEventListener('click', function() {
                 // 注册按钮的功能
-                window.location.href = 'http://sdk.zzttaacvb.com:13111/mobile/Downfile/index?gid=3&pid=5245';
+                window.location.href = 'http://8.154.28.75:8441/mobile/Downfile/index?gid=3&pid=5245';
             });
         });
     </script>
